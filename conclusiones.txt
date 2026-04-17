@@ -1,0 +1,60 @@
+Análisis de Rendimiento del Sistema
+
+La prueba de carga fue ejecutada utilizando Apache JMeter con el objetivo de evaluar el comportamiento del sistema bajo condiciones de carga sostenida. El escenario evaluado corresponde al flujo de autenticación (Login).
+
+A continuación, se presentan los parámetros generales bajo los cuales se realizó la ejecución:
+
+- Escenario evaluado: Autenticación de usuario (Login)
+- Herramienta utilizada: Apache JMeter (5.6.3)
+- Total de solicitudes ejecutadas: 1,575
+- Umbral de throughput mínimo requerido: 20 TPS
+- Umbral de tasa de error máximo permitido: 3%
+- Límite de tiempo de respuesta aceptable: 1,500 ms
+
+
+1. Resultados Obtenidos
+
+La siguiente tabla resume los indicadores clave de rendimiento registrados durante la ejecución de la prueba:
+
++------------------------------+----------------+---------------+
+| Métrica                      | Valor obtenido | Umbral / Meta |
++------------------------------+----------------+---------------+
+| Solicitudes ejecutadas       |     1,575      |       —       |
+| Throughput (TPS)             |  20.13 / seg   |   ≥ 20 TPS   |
+| Tiempo promedio de Respuesta |     205 ms     |  < 1,500 ms   |
+| Tiempo mediano (P50)         |     198 ms     |       —       |
+| Percentil 90 (P90)           |     208 ms     |       —       |
+| Percentil 95 (P95)           |     234 ms     |       —       |
+| Percentil 99 (P99)           |     422 ms     |       —       |
+| Tiempo mínimo de respuesta   |     186 ms     |       —       |
+| Tiempo máximo de respuesta   |   1,218 ms     |  < 1,500 ms   |
+| Tasa de error                |     0.00%      |    < 3%       |
++------------------------------+----------------+---------------+
+
+
+2. Hallazgos de la Prueba
+
+A partir de los resultados registrados durante la ejecución, se identificaron los siguientes hallazgos relevantes:
+
+2.1. Throughput
+
+El sistema alcanzó un TPS de 20.13 solicitudes por segundo, cumpliendo con el mínimo establecido de 20 TPS para el escenario de prueba. Sin embargo, este valor se encuentra muy próximo al límite de aceptación, dejando un margen de tolerancia mínimo ante incrementos de carga adicionales.
+
+2.2. Tiempos de respuesta
+
+Los tiempos de respuesta se mantuvieron dentro de los rangos aceptables durante toda la prueba. El tiempo promedio fue de 205 ms, con un valor mediano de 198 ms, lo que indica que la mayoría de las solicitudes se resolvieron con rapidez. El percentil 99 alcanzó los 422 ms, y el tiempo máximo registrado fue de 1,218 ms, ambos por debajo del umbral de 1,500 ms.
+
+La distribución de percentiles sugiere un comportamiento estable y consistente
+
+2.3. Tasa de error
+
+No se registraron solicitudes fallidas durante la ejecución, resultando en una tasa de error del 0.00%, muy por debajo del umbral permitido del 3%. Esto refleja una alta estabilidad del sistema bajo la carga evaluada.
+
+
+3. Conclusiones
+
+Con base en los resultados obtenidos, se puede afirmar que el sistema cumple con todos los criterios de aceptación establecidos. Los indicadores clave se mantienen dentro de los parámetros aceptados:
+
+- El sistema alcanzó 20.13 TPS, cumpliendo con el criterio mínimo de throughput.
+- El tiempo de respuesta promedio de 205 ms es significativamente inferior al umbral de 1,500 ms, lo que refleja un rendimiento óptimo. Sin embargo el tiempo máximo registrado fue de 1,218 ms, dentro del rango aceptable aunque cercano al límite.
+- La tasa de error fue de 0.00%, demostrando plena confiabilidad del sistema bajo la carga evaluada durante la prueba.
