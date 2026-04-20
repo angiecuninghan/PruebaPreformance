@@ -33,4 +33,4 @@ Abrir el archivo .jmx desde Jmeter y ejecutar
  ``` 
  jmeter -g "Ruta-archivo.jtl" -o "<Carpeta-reporte>"
  ```
-Nota: La carpeta para crear el reporte debe encontrarse vacia sin ningun archihvo
+Nota: La carpeta para crear el reporte debe encontrarse vacia sin ningun archivo
